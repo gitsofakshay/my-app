@@ -8,39 +8,64 @@ export default function TextForm(props) {
     // setText('new text');//Correct way to change the state
 
     const handleUpClick = () => {
-        let newText = text.toUpperCase();
-        setText(newText);
-        props.showAlert('Converted to upper case','success');
+        if (text.length>0) {
+            let newText = text.toUpperCase();
+            setText(newText);
+            props.showAlert('Converted to upper case','success');            
+        }else{
+            props.showAlert('Enter text please!','danger');
+        }
     } 
     
     const handleLoClick = () => {
-        let newText = text.toLowerCase();
-        setText(newText);
-        props.showAlert('Converted to lower case','success');
+        if (text.length>0) {
+            let newText = text.toLowerCase();
+            setText(newText);
+            props.showAlert('Converted to lower case','success');            
+        }else{
+            props.showAlert('Enter text please!','danger');
+        }
     }
 
     const handleClearClick = () => {
-        setText(' ');
-        props.showAlert('Form has been cleared','success');
+        if (text.length>0) {
+            setText(' ');
+            props.showAlert('Form has been cleared','success');            
+        }else{
+            props.showAlert('Enter text please!','danger');
+        }
     }
 
     const handleCopyClick = () => {
-        let text = document.getElementById('myBox');
-        text.select();
-        navigator.clipboard.writeText(text.value);
-        props.showAlert('Text is copied to clipboard','success');
+        if (text.length>0) {
+            let text = document.getElementById('myBox');
+            text.select();
+            navigator.clipboard.writeText(text.value);
+            props.showAlert('Text is copied to clipboard','success');            
+        }else{
+            props.showAlert('Enter text please!','danger');
+        }
     }
 
     const handleExtraSpaces = () => {
-        let newText = text.split(/[ ]+/);
-        setText(newText.join(" "));
-        props.showAlert('Removed extra spaces','success');
+        if (text.length>0) {
+            let newText = text.split(/[ ]+/);
+            setText(newText.join(" "));
+            props.showAlert('Removed extra spaces','success');            
+        }else{
+            props.showAlert('Enter text please!','danger');
+        }
     }
 
     const textToPdf = () => {
-        const pdf = new jsPDF();
-        pdf.text(text, 10, 10);
-        pdf.save('convertedText.pdf');
+        if (text.length>0) {
+            const pdf = new jsPDF();
+            pdf.text(text, 10, 10);
+            pdf.save('convertedText.pdf');
+            props.showAlert('Converted to pdf','success');            
+        }else{
+            props.showAlert('Enter text please!','danger');
+        }
     }
 
     const handleOnChange = (event) => {
