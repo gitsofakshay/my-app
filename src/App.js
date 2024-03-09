@@ -5,11 +5,11 @@ import About from './components/About';
 import Navbar from './components/Navbar';
 import TextForm from './components/TextForm';
 import Alert from './components/Alert';
-// import { 
-//   BrowserRouter as Router,  
-//   Route,
-//   Routes,
-//  } from 'react-router-dom';
+import { 
+  BrowserRouter as Router,  
+  Route,
+  Routes,
+ } from 'react-router-dom';
 
 function App() {
   const [darkMode, setDarkMode] = useState('light');
@@ -88,18 +88,18 @@ function App() {
 
   return (
     <>
-    {/* <Router> */}
+    <Router>
       <Navbar title="TextUtils" toggleDarkMode={toggleDarkMode} toggleBlueMode={toggleBlueMode} toggleGreyMode={toggleGreyMode} />
       <Alert alert={alert} />
       <div className="container my-3">
-        {/* <Routes> */}
-          {/* <Route exact path="/about" element={<About title="About Us"/>}></Route> */}
-          {/* <Route exact path="/" element={<TextForm showAlert={showAlert} heading="Enter your text to analyze" textMode={textMode} btnMode={btnMode} />}> */}
-            <TextForm showAlert={showAlert} heading="Enter your text to analyze" textMode={textMode} btnMode={btnMode} />
-          {/* </Route> */}
-        {/* </Routes> */}
+        <Routes>
+          <Route exact path="/about" element={<About title="About Us"/>}></Route>
+          <Route exact path="/" element={<TextForm showAlert={showAlert} heading="Enter your text to analyze" textMode={textMode} btnMode={btnMode} />}>
+            {/* <TextForm showAlert={showAlert} heading="Enter your text to analyze" textMode={textMode} btnMode={btnMode} /> */}
+          </Route>
+        </Routes>
       </div>
-      {/* </Router> */}
+      </Router>
     </>
   );
 }
