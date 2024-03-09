@@ -7,7 +7,7 @@ export default function Navbar(props) {
     return (
         <nav className={`navbar navbar-expand-lg navbar-light bg-light`}>
             <div className="container-fluid">
-                <a className="navbar-brand" href="/">{props.title}</a>
+                <a className="navbar-brand" href="/my-app">{props.title}</a>
                 {/* <Link className="navbar-brand" to="/my-app/">{props.title}</Link> */}
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
@@ -15,11 +15,11 @@ export default function Navbar(props) {
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                         <li className="nav-item">
-                            <a className="nav-link active" aria-current="page" href="/">Home</a>
+                            <a className="nav-link active" aria-current="page" href="/my-app">Home</a>
                             {/* <Link className="nav-link active" aria-current="page" to="/my-app/">Home</Link> */}
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link active" href="/">About TextUtils</a>
+                            <a className="nav-link active" href="/my-app">About TextUtils</a>
                             {/* <Link className="nav-link active" to="/about">About TextUtils</Link> */}
                         </li>
                     </ul>

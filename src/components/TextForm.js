@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import jsPDF from 'jspdf';
 
 export default function TextForm(props) {
     const [text, setText] = useState('');
@@ -35,6 +36,13 @@ export default function TextForm(props) {
         setText(newText.join(" "));
         props.showAlert('Removed extra spaces','success');
     }
+
+    const textToPdf = () => {
+        const pdf = new jsPDF();
+        pdf.text(text, 10, 10);
+        pdf.save('convertedText.pdf');
+    }
+
     const handleOnChange = (event) => {
         setText(event.target.value);
         const words = text.trim().split(/\s+/).filter(Boolean);
@@ -48,11 +56,12 @@ export default function TextForm(props) {
                     <h1>{props.heading}</h1>
                     <textarea className="form-control" style={{ backgroundColor: props.textMode === 'black' ? 'white' : '#d1cdca', color: props.textMode === 'black' ? 'black' : 'black' }} value={text} onChange={handleOnChange} id="myBox" rows="8"></textarea>
                 </div>
-                <button className={`btn btn-${props.btnMode} mx-2 my-2`} onClick={handleUpClick}>Convert to UpperCase</button>
-                <button className={`btn btn-${props.btnMode} mx-2 my-2`} onClick={handleLoClick}>Convert to LowerCase</button>
-                <button className={`btn btn-${props.btnMode} mx-2 my-2`} onClick={handleClearClick}>Clear</button>
-                <button className={`btn btn-${props.btnMode} mx-2 my-2`} onClick={handleCopyClick}>Copy</button>
-                <button className={`btn btn-${props.btnMode} mx-2 my-2`} onClick={handleExtraSpaces}>Remove Spaces</button>
+                <button className={`btn btn-${props.btnMode} mx- my-1`} onClick={handleUpClick}>Convert to UpperCase</button>
+                <button className={`btn btn-${props.btnMode} mx-1 my-1`} onClick={handleLoClick}>Convert to LowerCase</button>
+                <button className={`btn btn-${props.btnMode} mx-1 my-1`} onClick={handleClearClick}>Clear</button>
+                <button className={`btn btn-${props.btnMode} mx-1 my-1`} onClick={handleCopyClick}>Copy</button>
+                <button className={`btn btn-${props.btnMode} mx-1 my-1`} onClick={handleExtraSpaces}>Remove Spaces</button>
+                <button className={`btn btn-${props.btnMode} mx-1 my-1`} onClick={textToPdf}>Convert to PDF</button>
             </div>
             <div className="container my-2" style={{ color: props.textMode}}>
                 <h2>Your text summary</h2>
