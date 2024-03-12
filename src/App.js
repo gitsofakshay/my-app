@@ -32,7 +32,7 @@ function App() {
       setDarkMode('dark');
       setTextMode('white');
       document.body.style.backgroundColor = '#030336';
-      document.title = 'TextUtils - Dark Mode';
+      // document.title = 'TextUtils - Dark Mode';
       // setInterval(() => {
       //   document.title = 'TextUtils - is Amazing';
       // }, 2000);
@@ -45,7 +45,7 @@ function App() {
       setDarkMode('light');
       setTextMode('black');
       document.body.style.backgroundColor = 'white';
-      document.title = 'TextUtils - Home';
+      // document.title = 'TextUtils - Home';
       showAlert('Light mode has been enabled', 'success');
     }
   }
@@ -56,14 +56,14 @@ function App() {
       setBtnMode('success');
       setTextMode('white');
       document.body.style.backgroundColor = 'blue';
-      document.title = 'TextUtils - Blue Mode';
+      // document.title = 'TextUtils - Blue Mode';
       showAlert('Blue mode has been enabled', 'success');
     }else if (darkMode === 'blue') {
       setDarkMode('light');
       setBtnMode('primary');
       setTextMode('black');
       document.body.style.backgroundColor = 'white';
-      document.title = 'TextUtils - Home';
+      // document.title = 'TextUtils - Home';
       showAlert('Light mode has been enabled', 'success');
     }
   }
@@ -74,14 +74,14 @@ function App() {
       setBtnMode('primary');
       setTextMode('white');
       document.body.style.backgroundColor = 'grey';
-      document.title = 'TextUtils - Grey Mode';
+      // document.title = 'TextUtils - Grey Mode';
       showAlert('Grey mode has been enabled', 'success');
     }else if (darkMode === 'grey'){
       setDarkMode('light');
       setBtnMode('primary');
       setTextMode('black');
       document.body.style.backgroundColor = 'white';
-      document.title = 'TextUtils - Home';
+      // document.title = 'TextUtils - Home';
       showAlert('Light mode has been enabled', 'success');
     }
   } 
@@ -95,7 +95,7 @@ function App() {
         {/* <Routes> */}
           {/* <Route exact path="/about" element={<About title="About Us"/>}></Route> */}
           {/* <Route exact path="/my-app/" element={<TextForm showAlert={showAlert} heading="Enter your text to analyze" textMode={textMode} btnMode={btnMode} />}> */}
-            <TextForm showAlert={showAlert} heading="Enter your text to analyze" textMode={textMode} btnMode={btnMode} />
+            <TextForm showAlert={showAlert} heading="TextUtils Word counter Character counter Text to pdf" textMode={textMode} btnMode={btnMode} />
           {/* </Route> */}
         {/* </Routes> */}
       </div>
